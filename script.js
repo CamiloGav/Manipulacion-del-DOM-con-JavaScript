@@ -1,5 +1,7 @@
-const btn = document.querySelector("[data-form-btn]");
 
+( () =>  
+
+{const btn = document.querySelector("[data-form-btn]");
 // Arrow functions o funciones anonimas
 const createTask = (evento) => {
     evento.preventDefault();
@@ -11,7 +13,6 @@ const createTask = (evento) => {
     input.value = '';
 
     // backticks
-    console.log(checkComplete());
     const taskContent = document.createElement('div');
     const titleTask = document.createElement('span');
     titleTask.classList.add('task');
@@ -26,12 +27,8 @@ const createTask = (evento) => {
 
     //Aca terminaria la tarea *1
     task.appendChild(taskContent);
-    list.appendChild(task);
-
-    console.log(content); 
-}
-
-console.log(btn);
+    list.appendChild(task); 
+};
 
 btn.addEventListener('click', createTask);
 
@@ -42,6 +39,11 @@ const checkComplete = () => {
     return i;
 }
 
-const completeTask = () => {
-    console.log('Complete Task')
+const completeTask = (event) => {
+    const element = event.target
+    element.classList.toggle("fas");
+    element.classList.toggle("completeIcon");
+    element.classList.toggle("far");
+
 }
+})();
